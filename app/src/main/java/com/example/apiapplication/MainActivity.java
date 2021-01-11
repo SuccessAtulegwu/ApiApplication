@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     Adapter adapter;
     List<model> models;
     List<model> _OfflineList;
-    TextView txtCount, txtCall;
+    TextView txtCount, txtCall, txt;
     Button btnUpdate, btnCancel;
 
 
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         txtCount = findViewById(R.id.txtCount);
         btnUpdate = findViewById(R.id.btnUpdate);
         btnCancel = findViewById(R.id.btnCancel);
+        txt = findViewById(R.id.txt);
 
 
         /*-----call ups----*/
@@ -116,11 +117,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void Populate(List<model> data){
-        models = data;
-        txtCount.setText(String.valueOf(models.size()));
-        adapter = new Adapter(getApplicationContext(), models);
-        recyclerView.setAdapter(adapter);
-        saveData(getApplicationContext(),models);
+        if(data != null) {
+            models = data;
+            txtCount.setText(String.valueOf(models.size()));
+            adapter = new Adapter(getApplicationContext(), models);
+            recyclerView.setAdapter(adapter);
+            saveData(getApplicationContext(), models);
+            txt.setVisibility(View.INVISIBLE);
+        }else {
+            txt.setText("No data");
+            txt.setVisibility(View.VISIBLE);
+        }
     }
 
     public void saveData(Context context, List<model> list){
