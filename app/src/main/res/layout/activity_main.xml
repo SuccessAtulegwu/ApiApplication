@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#03A9F4">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/bg">
+
+    <TextView
+        android:id="@+id/txtCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_centerVertical="true"
+        android:paddingLeft="8dp"
+        android:text="LABEL COUNT"/>
+
+        <TextView
+            android:id="@+id/txtCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txtCall"
+            android:layout_centerInParent="true"
+            android:textColor="#F60303"
+            android:layout_margin="2dp"
+            android:textSize="12sp"
+            android:text="0"/>
+
+
+    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg">
+
+            <TextView
+                android:id="@+id/Api"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:layout_centerVertical="true"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="@string/label_count"/>
+            <TextView
+                android:id="@+id/Call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/Api"
+                android:layout_centerInParent="true"
+                android:layout_margin="2dp"
+                android:textSize="12sp"
+                android:textColor="#F60303"
+                android:text="@string/successful"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:stretchColumns="*"
+        android:shrinkColumns="*">
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:padding="10dp"
+                android:text="DoorId"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_column="1"
+                android:padding="10dp"
+                android:text="_LocKId"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_column="1"
+                android:padding="10dp"
+                android:text="_LockNumber"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_column="1"
+                android:padding="10dp"
+                android:text="_LockType"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
+                android:textStyle="bold" />
+
+
+        </TableRow>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:listitem="@layout/item_layout"/>
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#03A9F4">
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/update"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/btn_bg"
+            android:textColor="#F8F8F8"
+            android:elevation="8dp"/>
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:layout_centerVertical="true"
+           android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/btn_bg"
+            android:textColor="#F8F8F8"
+            android:elevation="8dp"/>
+
+
+
+    </RelativeLayout>
+</LinearLayout>
