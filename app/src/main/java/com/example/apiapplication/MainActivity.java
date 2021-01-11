@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -68,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         final NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
      if (networkInfo == null || !networkInfo.isConnected() || !networkInfo.isAvailable()) {
+       AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+       alert.setTitle("Alert");
+       alert.setMessage("Please connect to the internet to get the updated table");
+       final AlertDialog alertDialog = alert.create();
+       alert.show();
          _OfflineList = loadData(getApplicationContext());
          Populate(_OfflineList);
      }
